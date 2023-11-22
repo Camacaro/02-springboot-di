@@ -32,7 +32,7 @@ public class IndexController {
      *  this.service = service;
      * }
      *
-     * 3. Mediante constructor
+     * 3. Mediante constructor, esta es la RECOMENDADA una mejor práctica
      * public IndexController(IServicio service) {
      *     this.service = service;
      * }

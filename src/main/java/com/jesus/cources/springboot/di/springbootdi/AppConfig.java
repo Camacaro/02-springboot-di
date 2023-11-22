@@ -1,10 +1,15 @@
 package com.jesus.cources.springboot.di.springbootdi;
 
+import com.jesus.cources.springboot.di.springbootdi.models.domain.ItemInvoice;
+import com.jesus.cources.springboot.di.springbootdi.models.domain.Product;
 import com.jesus.cources.springboot.di.springbootdi.models.service.IServicio;
 import com.jesus.cources.springboot.di.springbootdi.models.service.MyService;
 import com.jesus.cources.springboot.di.springbootdi.models.service.MyServiceComplex;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.util.Arrays;
+import java.util.List;
 
 @Configuration
 public class AppConfig {
@@ -36,5 +41,31 @@ public class AppConfig {
     @Bean("meServiceComplexConfigSimple")
     public IServicio registerMyServiceComplex() {
         return new MyServiceComplex();
+    }
+
+    @Bean("itemsInvoice")
+    public List<ItemInvoice> registerItems() {
+        Product product1 = new Product("Camara Sony", 100);
+        Product product2 = new Product("Bicicleta", 150);
+
+        ItemInvoice line1 = new ItemInvoice(product1, 2);
+        ItemInvoice line2 = new ItemInvoice(product2, 1);
+
+        return Arrays.asList(line1, line2);
+    }
+
+    @Bean("itemsInvoiceOffice")
+    public List<ItemInvoice> registerItemsOffice() {
+        Product product1 = new Product("Monitor LG LCD 24", 300);
+        Product product2 = new Product("Notebook Asus", 500);
+        Product product3 = new Product("Impresora HP", 150);
+        Product product4 = new Product("Escritorio", 300);
+
+        ItemInvoice line1 = new ItemInvoice(product1, 2);
+        ItemInvoice line2 = new ItemInvoice(product2, 1);
+        ItemInvoice line3 = new ItemInvoice(product3, 1);
+        ItemInvoice line4 = new ItemInvoice(product4, 1);
+
+        return Arrays.asList(line1, line2, line3, line4);
     }
 }
