@@ -2,8 +2,16 @@ package com.jesus.cources.springboot.di.springbootdi.models.domain;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
+import org.springframework.web.context.annotation.SessionScope;
+
+/**
+ * El decorador @RequestScope se agregó para quitarle el scope de singleton
+ * ver ejemplo de Invoice
+ */
 
 @Component
+@RequestScope
 public class Client {
 
     @Value("${client.name}")
